@@ -34,17 +34,23 @@ ENV ODOO_RELEASE 20160204
 RUN set -x; \
         apt-get update \
         && apt-get install -y --no-install-recommends \
-            npm \
-            gcc \
-            python-pip \
-			python-dev \
-			libpq-dev \
-			libxml2-dev \
-			libxslt-dev \
-			libevent-dev \
-			libsasl2-dev \
-			libldap2-dev \
-			libjpeg-dev
+        	npm \
+        	gcc \
+        	python-pip \
+		python-dev \
+		libpq-dev \
+		libxml2-dev \
+		libxslt-dev \
+		libevent-dev \
+		libsasl2-dev \
+		libldap2-dev \
+		libjpeg-dev \
+# Added missing components to have a successful build with pip later
+		libxml2 \
+		libxslt1.1 \
+		python-libxml2 \
+		python-libxslt1 \
+		python-dev
 
 # As per instruction from https://www.odoo.com/documentation/9.0/setup/install.html#setup-install-source
 RUN set -x; \
